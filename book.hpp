@@ -2,15 +2,16 @@
 #define ALG_II_BOOK_H
 
 #include <string>
+#include <vector>
 using namespace std;
 
-struct Book {
+struct Books {
     string title;
     string author;
     int year;
     int copies;
 };
 
-void insert(Book book);
-Book [] list()
+void insert(vector<Books> &books_vector, Books props);
+vector<Books> list(vector<Books> &books_vector, Books props);
 #endif
