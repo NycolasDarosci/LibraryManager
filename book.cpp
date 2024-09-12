@@ -1,5 +1,7 @@
 #include "book.hpp"
 #include "vector"
+#include <iostream>
+#include <string>
 using namespace std;
 
 vector<Books> list(vector<Books> &books_vector, Books props) {
@@ -28,6 +30,22 @@ vector<Books> list(vector<Books> &books_vector, Books props) {
 
     return matched_books;}
 
-void insert(vector<Books> &books_vector, Books props) {
-    books_vector.push_back(props);
+void insert(vector<Books> &books_vector) {
+    string title, author;
+    int year, copies;
+
+    cout << "Preencha as informações do livro: " << endl;
+
+    cout << "Título do livro: ";
+    getline(cin, title);
+    cout << "Autor do livro: ";
+    getline(cin, author);
+    cout << "Ano de lançamento do livro: ";
+    cin >> year;
+    cout << "Número de cópias do livro: ";
+    cin >> copies;
+
+    Books newBook = {title, author, year, copies};
+
+    books_vector.push_back(newBook);
 }

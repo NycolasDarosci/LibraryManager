@@ -12,6 +12,6 @@ struct Books {
     int copies;
 };
 
-void insert(vector<Books> &books_vector, Books props);
+void insert(vector<Books> &books_vector);
 vector<Books> list(vector<Books> &books_vector, Books props);
 #endif
