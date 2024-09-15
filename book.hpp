@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+
 using namespace std;
 
 struct Books {
@@ -14,4 +15,8 @@ struct Books {
 
 void insert(vector<Books> &books_vector);
 vector<Books> list(vector<Books> &books_vector, Books props);
+void listAll(vector<Books> &books_vector);
+Books& getBook(vector<Books> &books_vector, string title, string author);
+
+
 #endif
