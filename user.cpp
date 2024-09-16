@@ -13,12 +13,12 @@ void insert(vector<User> &users_vector) {
     cin.ignore();
     getline(cin, name);
 
-    users_vector.push_back(User{name, 0});
+    users_vector.push_back((User){name, 0});
     cout << "Usuário cadastrado com sucesso!";
 }
 
 // função apenas para ver se User foi criado. Desnessário para o projeto
-void listAll(vector<User> &users_vector) {
+void list(vector<User> &users_vector) {
     if (users_vector.empty()) {
         return;
     }
@@ -32,12 +32,11 @@ void listAll(vector<User> &users_vector) {
     }
 }
 
-User& getUser(vector<User> &users_vector, string name) {
-    //User &returnUser;
+User* getByName(vector<User> &users_vector, const string name) {
     for (User &user : users_vector) {
         if (user.name == name) {
-            return user;
+            return &user;
         }
     }
-    //cout << "Não foi encontrado nenhum usuário com o nome: " << name << endl;
+    return nullptr;
 }
