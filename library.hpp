@@ -3,9 +3,9 @@
 
 #include "book.hpp"
 #include "user.hpp"
-#include <vector>
+#include "vector"
+using namespace std;
 
-void borrowBook(vector<Books> &books_vector, vector<User> &users_vector);
-void loan_book();
+void loanBook(vector<Book> &books_vector, vector<User> &users_vector);
 
 #endif
