@@ -24,7 +24,6 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
     
     if (book->copies == 0) {
         cout << "Sem o livro: " << book->title << " no estoque!";
-        //return;
     } else {
         user->story_borrowed_books.append(book->title + " ");
         user->current_borrowed_books = user->current_borrowed_books.append(book->title.append(", " + book->author));
