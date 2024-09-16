@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<Book> list(vector<Book> &books_vector) {
+void list(vector<Book> &books_vector) {
     for (const Book& book : books_vector) {
         cout << "Título: " << book.title << endl;
         cout << "Autor: " << book.author << endl;
@@ -14,9 +14,8 @@ vector<Book> list(vector<Book> &books_vector) {
         cout << "Cópias: " << book.copies << endl;
         cout << "\n";
     }
-    return books_vector;
 }
-vector<Book> list(vector<Book> &books_vector, const Book props) {
+void list(vector<Book> &books_vector, const Book props) {
     vector<Book> matched_books;
 
     for (const Book& book : books_vector) {
@@ -44,7 +43,6 @@ vector<Book> list(vector<Book> &books_vector, const Book props) {
         cout << "Cópias: " << book.copies << endl;
         cout << "\n";
     }
-    return matched_books;
 }
 
 void insert(vector<Book> &books_vector) {
