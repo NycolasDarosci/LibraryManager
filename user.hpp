@@ -3,14 +3,15 @@
 
 #include <string>
 #include "vector"
+#include "book.hpp"
 
 using namespace std;
 
 struct User{
     string name;
     int balance;
-    string story_borrowed_books;
-    string current_borrowed_books;
+    vector<Book> story_borrowed_books;
+    vector<Book> current_borrowed_books;
 };
 
 void insert(vector<User> &users_vector);
