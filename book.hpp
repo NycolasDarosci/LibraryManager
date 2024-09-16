@@ -16,6 +16,6 @@ struct Book {
 void insert(vector<Book> &books_vector);
 vector<Book> list(vector<Book> &books_vector);
 vector<Book> list(vector<Book> &books_vector, Book props);
-Book* getBook(vector<Book> &books_vector, string title, string author);
+Book* find(vector<Book> &books_vector, string title, string author);
 
 #endif

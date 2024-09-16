@@ -6,6 +6,6 @@
 #include "vector"
 using namespace std;
 
-void loanBook(vector<Book> &books_vector, vector<User> &users_vector);
+void borrow_book(vector<Book> &books_vector, vector<User> &users_vector);
 
 #endif

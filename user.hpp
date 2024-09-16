@@ -15,7 +15,7 @@ struct User{
 
 void insert(vector<User> &users_vector);
 void list(vector<User> &users_vector);
-User* getByName(vector<User> &users_vector, string name);
+User* find_by_name(vector<User> &users_vector, string name);
 //void return_book();
 //void loaned_books();
 

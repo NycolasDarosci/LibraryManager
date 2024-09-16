@@ -62,7 +62,7 @@ void insert(vector<Book> &books_vector) {
     cout << "Livro cadastrado com sucesso!";
 }
 
-Book* getBook(vector<Book> &books_vector, string title, string author) {
+Book* find(vector<Book> &books_vector, string title, string author) {
     for (Book &book : books_vector) {
         if (book.title == title && book.author == author) {
             return &book;

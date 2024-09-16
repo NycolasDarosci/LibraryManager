@@ -43,7 +43,7 @@ int main () {
               break;
           }
           case 3: {
-            loanBook(books, users);
+            borrow_book(books, users);
             break;
           }
           case 4:

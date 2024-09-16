@@ -32,7 +32,7 @@ void list(vector<User> &users_vector) {
     }
 }
 
-User* getByName(vector<User> &users_vector, const string name) {
+User* find_by_name(vector<User> &users_vector, const string name) {
     for (User &user : users_vector) {
         if (user.name == name) {
             return &user;
