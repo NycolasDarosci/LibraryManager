@@ -1,5 +1,11 @@
 #ifndef ALG_II_LIBRARY_H
 #define ALG_II_LIBRARY_H
-void loan_book();
+
+#include "book.hpp"
+#include "user.hpp"
+#include "vector"
+using namespace std;
+
+void borrow_book(vector<Book> &books_vector, vector<User> &users_vector);
 
 #endif
