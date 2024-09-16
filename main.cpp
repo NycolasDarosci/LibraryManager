@@ -9,7 +9,7 @@
 
 using namespace std;
 
-vector<Books> books;
+vector<Book> books;
 vector<User> users;
 
 int main () {
@@ -37,40 +37,35 @@ int main () {
           case 1:
             insert(books);
             break;
-          case 2:
-            insert(users);
-            listAll(users);
-            break;
+          case 2: {
+              insert(users);
+              list(users);
+              break;
+          }
           case 3: {
-                borrowBook(books, users);
-                break;
-            }
+            loanBook(books, users);
+            break;
+          }
           case 4:
             break;
           case 5: {
-                string title, author;
-                int year;
-                
-                cin.ignore();
-                cout << "Digite o título ou pule: "; getline(cin, title);
-                cout << "Digite o autor ou pule: "; getline(cin, author);
-                cout << "Digite o ano ou pule: "; cin >> year;
-                
-                vector<Books> booksSearched = list(books, Books{title, author, year});
-                
-                for (const Books& book : booksSearched) {
-                    cout << "Título: " << book.title << endl;
-                    cout << "Autor: " << book.author << endl;
-                    cout << "Ano de publicação: " << book.year << endl;
-                    cout << "Cópias: " << book.copies << endl;
-                    cout << "\n";
-                }
-                break;
-            }
+            string title, author;
+            int year, copies;
+
+            cin.ignore();
+            cout << "Digite o título ou pule: "; getline(cin, title);
+            cout << "Digite o autor ou pule: "; getline(cin, author);
+            cout << "Digite o ano ou pule: "; cin >> year;
+            cout << "Digite o número de cópias ou pule: "; cin >> copies;
+
+            list(books, (Book){ title, author, year, copies });
+
+            break;
+          }
           case 6:
             break;
           case 7:
-            listAll(books);
+            list(books);
             break;
           case 8:
             break;
