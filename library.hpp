@@ -8,5 +8,6 @@ using namespace std;
 
 void borrow_book(vector<Book> &books_vector, vector<User> &users_vector);
 void return_book(vector<Book> &books_vector, vector<User> &users_vector);
+void loan_report(vector<Book> &books_vector, vector<User> &users_vector);
 
 #endif

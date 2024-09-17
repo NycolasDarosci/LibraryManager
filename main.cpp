@@ -30,7 +30,6 @@ int main () {
             cout << "Relatórios de empréstimo (9)\n";
             cout << "Sair (10)\n";
             cin >> option;
-            system("cls || clear");
         } while (option < 1 || option > 10);
 
         switch (option) {
@@ -71,6 +70,7 @@ int main () {
           case 8:
             break;
           case 9:
+            loan_report(books, users);
             break;
           default:
             break;

@@ -11,6 +11,7 @@ struct Book {
     string author;
     int year;
     int copies;
+    int numberOfLoans;
 };
 
 struct SelectedBook {
