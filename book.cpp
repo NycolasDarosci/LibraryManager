@@ -70,3 +70,16 @@ Book* find(vector<Book> &books_vector, string title, string author) {
     return nullptr;
 }
 
+SelectedBook select(vector<Book> &books_vector) {
+    cout << "\nDigite o número do livro:\n";
+    for (int i = 1; i <= books_vector.size(); i++) {
+        cout << books_vector.at(i - 1).title << " (" << i << ") \n";
+    }
+    int selected_book_index;
+    cin >> selected_book_index;
+
+    return (SelectedBook){
+        .index =  selected_book_index - 1,
+        .book =  &books_vector.at(selected_book_index - 1),
+    };
+}

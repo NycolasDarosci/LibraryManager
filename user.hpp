@@ -13,11 +13,14 @@ struct User{
     vector<Book> story_borrowed_books;
     vector<Book> current_borrowed_books;
 };
+struct SelectedUser{
+    int index;
+    User* user;
+};
 
 void insert(vector<User> &users_vector);
 void list(vector<User> &users_vector);
 User* find_by_name(vector<User> &users_vector, string name);
-//void return_book();
-//void loaned_books();
+SelectedUser select(vector<User>);
 
 #endif

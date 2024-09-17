@@ -43,35 +43,23 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
 }
 
 void return_book(vector<Book> &books_vector, vector<User> &users_vector) {
-    cout << "Digite o número do usuário que irá devolver:\n";
-    for (int i = 1; i <= users_vector.size(); i++) {
-        cout << users_vector.at(i - 1).name << " (" << i << ") \n";
-    }
-    int selected_user_index;
-    cin >> selected_user_index;
-    User *selected_user = &users_vector.at(selected_user_index - 1);
+    SelectedUser selected_user = select(users_vector);
 
-    if (selected_user->current_borrowed_books.size() == 0) {
+    if (selected_user.user->current_borrowed_books.size() == 0) {
         cout << "\nUsuário não contém livros em empréstimo \n";
         return;
     }
 
-    cout << "\nDigite o número do livro a ser devolvido:\n";
-    for (int i = 1; i <= selected_user->current_borrowed_books.size(); i++) {
-        cout << selected_user->current_borrowed_books.at(i - 1).title << " (" << i << ") \n";
-    }
-    int selected_book_index;
-    cin >> selected_book_index;
-    Book *selected_book = &selected_user->current_borrowed_books.at(selected_book_index - 1);
+    SelectedBook selected_book = select(selected_user.user->current_borrowed_books);
 
-    Book* book = find(books_vector, selected_book->title, selected_book->author);
+    Book* book = find(books_vector, selected_book.book->title, selected_book.book->author);
     if (book == nullptr) {
         cout << "Livro não encontrado!" << endl;
         return;
     }
 
     book->copies += 1;
-    selected_user->current_borrowed_books.erase(selected_user->current_borrowed_books.begin() + selected_book_index - 1);
+    selected_user.user->current_borrowed_books.erase(selected_user.user->current_borrowed_books.begin() + selected_book.index - 1);
 
     cout << "\nDevolução do livro " << book->title << " realizada com sucesso!\n";
     cout << "Livro contém agora " << book->copies << " cópias.\n";
