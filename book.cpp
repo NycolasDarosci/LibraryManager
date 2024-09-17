@@ -70,7 +70,7 @@ Book* find(vector<Book> &books_vector, string title, string author) {
     return nullptr;
 }
 
-SelectedBook select(vector<Book> &books_vector) {
+SelectedBook select_book(vector<Book> &books_vector) {
     cout << "\nDigite o número do livro:\n";
     for (int i = 1; i <= books_vector.size(); i++) {
         cout << books_vector.at(i - 1).title << " (" << i << ") \n";

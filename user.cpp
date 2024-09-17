@@ -45,7 +45,7 @@ User* find_by_name(vector<User> &users_vector, const string name) {
     return nullptr;
 }
 
-SelectedUser select(vector<User> &users_vector) {
+SelectedUser select_user(vector<User> &users_vector) {
     cout << "Digite o número do usuário:\n";
     for (int i = 1; i <= users_vector.size(); i++) {
         cout << users_vector.at(i - 1).name << " (" << i << ") \n";
