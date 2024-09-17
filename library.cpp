@@ -109,6 +109,24 @@ void loan_report(vector<Book> &books_vector, vector<User> &users_vector) {
     }
 }
 
+void list_book_by_user(vector<User> &users_vector){
+    SelectedUser selected_user = select_user(users_vector);
+
+    if (selected_user.user->current_borrowed_books.size() == 0) {
+        cout << "\nUsuário não contém livros em empréstimo \n";
+        return;
+    }
+
+    for(int i = 0; i <= selected_user.user->current_borrowed_books.size() - 1; i++){
+        Book* current_borrowed_book = &selected_user.user->current_borrowed_books[i];
+        cout << "Título: " << current_borrowed_book->title << endl;
+        cout << "Autor: " << current_borrowed_book->author << endl;
+        cout << "Ano: " << current_borrowed_book->year << endl;
+        cout << "Cópias: " << current_borrowed_book->copies << endl;
+        cout << "Número de Cópias: " << current_borrowed_book->numberOfLoans << endl;
+    }
+}
+
 void return_book(vector<Book> &books_vector, vector<User> &users_vector) {
     SelectedUser selected_user = select_user(users_vector);
 

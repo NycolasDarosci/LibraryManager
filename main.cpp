@@ -63,6 +63,7 @@ int main () {
             break;
           }
           case 6:
+            list_book_by_user(users);
             break;
           case 7:
             list(books);
