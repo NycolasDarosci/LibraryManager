@@ -43,31 +43,51 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
     }
 }
 
-void loan_report(vector<Book> &books_vector, vector<User> &users_vector){
+void loan_report(vector<Book> &books_vector, vector<User> &users_vector) {
     Book most_popular_books[3];
     User most_active_users[3];
     int total_number_loans = 0;
+
+    for (int i = 0; i < 3; i++) {
+        most_popular_books[i] = Book();
+        most_active_users[i] = User();
+    }
 
     for (const Book& book : books_vector) {
         cout << "Título: " << book.title << endl;
         cout << "Número de empréstimos: " << book.numberOfLoans << endl;
 
-        total_number_loans = total_number_loans + book.numberOfLoans;
+        total_number_loans += book.numberOfLoans;
 
-        for(int i = 3; i > 0; i--){
-            cout << "Passou aqui: " << most_popular_books[i].numberOfLoans;
-            if(book.numberOfLoans > most_popular_books[i].numberOfLoans){
-                most_popular_books[i] = book;
+        if (book.numberOfLoans > most_popular_books[2].numberOfLoans) {
+            most_popular_books[2] = book;
+
+            for (int i = 2; i > 0; i--) {
+                if (most_popular_books[i].numberOfLoans > most_popular_books[i - 1].numberOfLoans) {
+                    Book temp = most_popular_books[i];
+                    most_popular_books[i] = most_popular_books[i - 1];
+                    most_popular_books[i - 1] = temp;
+                } else {
+                    break;
+                }
             }
         }
 
         cout << "\n";
     }
 
-    for(const User& user : users_vector){
-        for(int i = 3; i > 0; i--){
-            if(user.current_borrowed_books.size() > most_active_users[i].current_borrowed_books.size()){
-                most_active_users[i] = user;
+    for (const User& user : users_vector) {
+        if (user.current_borrowed_books.size() > most_active_users[2].current_borrowed_books.size()) {
+            most_active_users[2] = user;
+
+            for (int i = 2; i > 0; i--) {
+                if (most_active_users[i].current_borrowed_books.size() > most_active_users[i - 1].current_borrowed_books.size()) {
+                    User temp = most_active_users[i];
+                    most_active_users[i] = most_active_users[i - 1];
+                    most_active_users[i - 1] = temp;
+                } else {
+                    break;
+                }
             }
         }
     }
@@ -75,15 +95,17 @@ void loan_report(vector<Book> &books_vector, vector<User> &users_vector){
     cout << "O número total de empréstimos da biblioteca é: " << total_number_loans << endl;
 
     cout << "Os 3 livros mais populares são: " << endl;
-
-    for(int i = 0; i < 3; i++){
-        cout << "Título: " << most_popular_books[i].title << endl;
+    for (int i = 0; i < 3; i++) {
+        if (!most_popular_books[i].title.empty()) {
+            cout << "Título: " << most_popular_books[i].title << endl;
+        }
     }
 
     cout << "Os 3 usuários mais ativos são: " << endl;
-
-    for(int i = 0; i < 3; i++){
-        cout << "Nome: " << most_active_users[i].name << endl;
+    for (int i = 0; i < 3; i++) {
+        if (!most_active_users[i].name.empty()) {
+            cout << "Nome: " << most_active_users[i].name << endl;
+        }
     }
 }
 

@@ -11,7 +11,7 @@ struct Book {
     string author;
     int year;
     int copies;
-    int numberOfLoans;
+    unsigned short int numberOfLoans = 0;
 };
 
 struct SelectedBook {
