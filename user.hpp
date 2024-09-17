@@ -2,6 +2,7 @@
 #define ALG_II_USER_H
 
 #include <string>
+#include <time.h>
 #include "vector"
 #include "book.hpp"
 
@@ -12,6 +13,7 @@ struct User{
     int balance;
     vector<Book> story_borrowed_books;
     vector<Book> current_borrowed_books;
+    time_t return_book;
 };
 struct SelectedUser{
     int index;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <time.h>
 
 #include "book.hpp"
 #include "user.hpp"
@@ -29,6 +30,8 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
         user->story_borrowed_books.push_back(*book);
         user->current_borrowed_books.push_back(*book);
         user->balance++;
+        struct tm *local_time_date;
+        local_time_date = localtime(&user->return_book.tm_sec);
         book->copies--;
         book->numberOfLoans++;
 
