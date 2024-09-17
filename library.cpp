@@ -11,24 +11,17 @@ using namespace std;
 void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
     string name, title, author;
     cin.ignore();
-    
+
     cout << "Digite o nome do usuário que irá emprestar: ";
     getline(cin, name);
-    
-    User* user = find_by_name(users_vector, name);
+
+    User *user = find_by_name(users_vector, name);
     if (user == nullptr) {
         cout << "Usuário não encontrado!" << endl;
         return;
     }
-    
-    cout << "Digite o título do livro: "; getline(cin, title);
-    cout << "Digite o autor: "; getline(cin, author);
-    
-    Book* book = find(books_vector, title, author);
-    if (book == nullptr) {
-        cout << "Livro não encontrado!" << endl;
-        return;
-    }
+
+    Book *book = select_book(books_vector).book;
 
     if (book->copies == 0) {
         cout << "Sem o livro: " << book->title << " no estoque!";

@@ -15,6 +15,7 @@ void list(vector<Book> &books_vector) {
         cout << "\n";
     }
 }
+
 void list(vector<Book> &books_vector, const Book props) {
     vector<Book> matched_books;
 
@@ -73,7 +74,8 @@ Book* find(vector<Book> &books_vector, string title, string author) {
 SelectedBook select_book(vector<Book> &books_vector) {
     cout << "\nDigite o número do livro:\n";
     for (int i = 1; i <= books_vector.size(); i++) {
-        cout << books_vector.at(i - 1).title << " (" << i << ") \n";
+        Book book = books_vector.at(i - 1);
+        cout << book.title << ", " + book.author << " (" << i << ") \n";
     }
     int selected_book_index;
     cin >> selected_book_index;

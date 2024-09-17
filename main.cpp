@@ -30,6 +30,7 @@ int main () {
             cout << "Relatórios de empréstimo (9)\n";
             cout << "Sair (10)\n";
             cin >> option;
+            // system("clear||cls"); func Limpa a tela não funciona no replit
         } while (option < 1 || option > 10);
 
         switch (option) {

@@ -22,21 +22,20 @@ void list(vector<User> &users_vector) {
     if (users_vector.empty()) {
         return;
     }
-    
-    for (const User& user : users_vector) {
+    for (const User &user : users_vector) {
         cout << "Nome: " << user.name << endl;
         cout << "Número de livros emprestados: " << user.balance << endl;
-        for (const Book& book : user.story_borrowed_books) {
+        for (const Book &book : user.story_borrowed_books) {
             cout << "Histórico de livros emprestados: " << book.title << endl;
         }
-        for (const Book& book : user.current_borrowed_books) {
+        for (const Book &book : user.current_borrowed_books) {
             cout << "Livro emprestado atualmente: " << book.title << endl;
         }
         cout << "\n";
     }
 }
 
-User* find_by_name(vector<User> &users_vector, const string name) {
+User *find_by_name(vector<User> &users_vector, const string name) {
     for (User &user : users_vector) {
         if (user.name == name) {
             return &user;
@@ -54,7 +53,7 @@ SelectedUser select_user(vector<User> &users_vector) {
     cin >> selected_user_index;
 
     return (SelectedUser){
-        .index =  selected_user_index - 1,
-        .user =  &users_vector.at(selected_user_index - 1),
+        .index = selected_user_index - 1,
+        .user = &users_vector.at(selected_user_index - 1),
     };
 }
