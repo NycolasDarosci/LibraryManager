@@ -26,8 +26,12 @@ void list(vector<User> &users_vector) {
     for (const User& user : users_vector) {
         cout << "Nome: " << user.name << endl;
         cout << "Número de livros emprestados: " << user.balance << endl;
-        cout << "Histórico de livros emprestados: " << user.story_borrowed_books << endl;
-        cout << "Livro emprestado atualmente: " << user.current_borrowed_books << endl;
+        for (const Book& book : user.story_borrowed_books) {
+            cout << "Histórico de livros emprestados: " << book.title << endl;
+        }
+        for (const Book& book : user.current_borrowed_books) {
+            cout << "Livro emprestado atualmente: " << book.title << endl;
+        }
         cout << "\n";
     }
 }

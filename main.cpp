@@ -47,6 +47,7 @@ int main () {
             break;
           }
           case 4:
+            return_book(books, users);
             break;
           case 5: {
             string title, author;
