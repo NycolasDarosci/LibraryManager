@@ -43,14 +43,14 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
 }
 
 void return_book(vector<Book> &books_vector, vector<User> &users_vector) {
-    SelectedUser selected_user = select(users_vector);
+    SelectedUser selected_user = select_user(users_vector);
 
     if (selected_user.user->current_borrowed_books.size() == 0) {
         cout << "\nUsuário não contém livros em empréstimo \n";
         return;
     }
 
-    SelectedBook selected_book = select(selected_user.user->current_borrowed_books);
+    SelectedBook selected_book = select_book(selected_user.user->current_borrowed_books);
 
     Book* book = find(books_vector, selected_book.book->title, selected_book.book->author);
     if (book == nullptr) {

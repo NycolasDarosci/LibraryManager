@@ -21,6 +21,6 @@ struct SelectedUser{
 void insert(vector<User> &users_vector);
 void list(vector<User> &users_vector);
 User* find_by_name(vector<User> &users_vector, string name);
-SelectedUser select(vector<User>);
+SelectedUser select_user(vector<User> &users_vector);
 
 #endif
