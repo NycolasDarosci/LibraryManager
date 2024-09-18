@@ -2,18 +2,22 @@
 #define ALG_II_USER_H
 
 #include <string>
-#include <time.h>
+#include <ctime>
 #include "vector"
 #include "book.hpp"
 
 using namespace std;
 
+struct UserBorrowedBook {
+    Book *book;
+    time_t return_date;
+};
+
 struct User{
     string name;
-    int balance;
+    double balance;
     vector<Book> story_borrowed_books;
-    vector<Book> current_borrowed_books;
-    time_t return_book;
+    vector<UserBorrowedBook> current_borrowed_books;
 };
 struct SelectedUser{
     int index;
