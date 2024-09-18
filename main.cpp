@@ -13,6 +13,13 @@ vector<Book> books;
 vector<User> users;
 
 int main () {
+  books.push_back((Book){"The Great Gatsby", "F. Scott Fitzgerald", 1925, 3, 10});
+  books.push_back((Book){"1984", "George Orwell", 1949, 5, 20});
+  books.push_back((Book){"To Kill a Mockingbird", "Harper Lee", 1960, 2, 15});
+
+  users.push_back((User){.name = "Gabriel"});
+  users.push_back((User){.name = "João"});
+  users.push_back((User){.name = "Maria"});
 
   int option;
   do {
@@ -70,6 +77,7 @@ int main () {
             list(books);
             break;
           case 8:
+            loan_fine(users);
             break;
           case 9:
             loan_report(books, users);
