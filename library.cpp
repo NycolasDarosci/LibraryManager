@@ -12,13 +12,9 @@ using namespace std;
 void borrow_book(vector<Book> &books_vector, vector<User> &users_vector) {
     time_t current_time = time(NULL);
 
-    string name, title, author;
-    cin.ignore();
+    SelectedUser selected_user = select_user(users_vector);
 
-    cout << "Digite o nome do usuário que irá emprestar: ";
-    getline(cin, name);
-
-    User *user = find_by_name(users_vector, name);
+    User *user = find_by_name(users_vector, selected_user.user->name);
     if (user == nullptr) {
         cout << "Usuário não encontrado!" << endl;
         return;
