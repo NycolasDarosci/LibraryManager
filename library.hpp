@@ -10,5 +10,6 @@ void borrow_book(vector<Book> &books_vector, vector<User> &users_vector);
 void return_book(vector<Book> &books_vector, vector<User> &users_vector);
 void loan_report(vector<Book> &books_vector, vector<User> &users_vector);
 void list_book_by_user(vector<User> &users_vector);
+void loan_fine(vector<User> &users_vector);
 
 #endif
